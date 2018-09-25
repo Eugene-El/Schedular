@@ -13,6 +13,6 @@ namespace SchedularLib.Models
         public string Title { get; set; }
         public DateTime Date { get; set; }
         public string Descriptions { get; set; }
-        public byte[] File { get; set; }
+        public List<byte[]> Files { get; set; }
     }
 }

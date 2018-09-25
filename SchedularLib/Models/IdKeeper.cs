@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace SchedularLib.Models
 {
+    [Serializable]
     public class IdKeeper
     {
-        uint currentId { get; set; } 
+        public uint currentId { get; set; } 
     }
 }

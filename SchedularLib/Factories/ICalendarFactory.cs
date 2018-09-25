@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SchedularLib.API
+namespace SchedularLib.Factories
 {
-    public interface ICalendarController
+    public interface ICalendarFactory
     {
 
         List<Event> GetEventsByMonthAndYear(int year, Months month);

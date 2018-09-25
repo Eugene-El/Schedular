@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SchedularLib.API
+namespace SchedularLib.Factories
 {
-    public class CalendarController
+    public class CalendarFactory
     {
-        public CalendarController()
+        public CalendarFactory()
         {
             
         }

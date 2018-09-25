@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SchedularLib</RootNamespace>
     <AssemblyName>SchedularLib</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,10 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\CalendarController.cs" />
-    <Compile Include="API\ICalendarController.cs" />
+    <Compile Include="Factories\CalendarFactory.cs" />
+    <Compile Include="Factories\ICalendarFactory.cs" />
     <Compile Include="Enums\Months.cs" />
-    <Compile Include="Managers\FileManager.cs" />
+    <Compile Include="Managers\CalendarFileManager.cs" />
+    <Compile Include="Managers\IdManager.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdKeeper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
