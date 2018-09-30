@@ -13,7 +13,7 @@ namespace SchedularLib.Models
         public string Title { get; set; }
         public DateTime Date { get; set; }
         public string Descriptions { get; set; }
-        public List<byte[]> Files { get; set; }
+        public List<AttachedFile> Files { get; set; }
         
 
         public override bool Equals(object obj)

@@ -46,6 +46,7 @@
     <Compile Include="Enums\Months.cs" />
     <Compile Include="Managers\CalendarFileManager.cs" />
     <Compile Include="Managers\IdManager.cs" />
+    <Compile Include="Models\AttachedFile.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdKeeper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

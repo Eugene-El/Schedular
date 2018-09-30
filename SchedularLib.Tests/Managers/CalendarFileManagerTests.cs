@@ -24,14 +24,14 @@ namespace SchedularLib.Tests.Managers
                     Id = 1,
                     Date = date,
                     Title = "Testing event 1",
-                    Files = new List<byte[]>(),
+                    Files = new List<AttachedFile>(),
                     Descriptions = ""
                 },
                 new Event() {
                     Id = 2,
                     Date = date,
                     Title = "Testing event 2",
-                    Files = new List<byte[]>(),
+                    Files = new List<AttachedFile>(),
                     Descriptions = ""
                 }
             };
