@@ -23,7 +23,11 @@ namespace SchedularLib.Managers
             {
                 using (FileStream fs = new FileStream(fileName, FileMode.Open))
                 {
-                    return (List<Event>)binaryFormatter.Deserialize(fs);
+                    List<Event> events = (List<Event>)binaryFormatter.Deserialize(fs);
+                    if (events == null)
+                        return new List<Event>();
+                    else
+                        return events;
                 }
             }
         }
@@ -40,6 +44,15 @@ namespace SchedularLib.Managers
             }
         }
 
+        public static void WriteCalendar(List<Event> events, int year, Months month)
+        {
+            string fileName = GetFileName(year, month);
+            using (FileStream fs = new FileStream(fileName, FileMode.Create))
+            {
+                binaryFormatter.Serialize(fs, events);
+            }
+        }
+
         public static void RemoveCalendar(int year, Months month)
         {
             string fileName = GetFileName(year, month);
@@ -47,11 +60,26 @@ namespace SchedularLib.Managers
                 File.Delete(fileName);
         }
 
+        public static void DropAllCalendars()
+        {
+            foreach (string file in Directory.GetFiles(Directory.GetCurrentDirectory()).Where(s => s.EndsWith(fileFormat)))
+                File.Delete(file);
+
+            IdManager.DropIds();
+        }
+
+        public static bool DoesCalendarExists(int year, Months month)
+        {
+            return File.Exists(GetFileName(year, month));
+        }
+
         private static BinaryFormatter binaryFormatter = new BinaryFormatter();
 
         private static string GetFileName(int year, Months month)
         {
-            return year.ToString() + "_" + month.ToString().ToUpper() + ".cal";
+            return year.ToString() + "_" + month.ToString().ToUpper() + fileFormat;
         }
+
+        private static string fileFormat = ".cal";
     }
 }

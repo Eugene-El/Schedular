@@ -11,5 +11,19 @@ namespace SchedularLib.Models
     {
         public string Name { get; set; }
         public byte[] FileContent { get; set; }
+
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode() ^ FileContent.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            AttachedFile other = obj as AttachedFile;
+            return Name == other.Name &&
+                FileContent == other.FileContent;
+        }
+
     }
 }

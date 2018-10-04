@@ -23,5 +23,6 @@ namespace SchedularLib.Factories
 
         void UpdateEvent(Event @event);
 
+        void RemoveEvent(Event @event);
     }
 }

@@ -4,8 +4,6 @@ using SchedularLib.Managers;
 using SchedularLib.Models;
 using System.Collections.Generic;
 using SchedularLib.Enums;
-using System.Linq;
-using System.IO;
 
 namespace SchedularLib.Tests.Managers
 {
@@ -21,14 +19,12 @@ namespace SchedularLib.Tests.Managers
             date = new DateTime(2007, 9, 26);
             expectedEvents = new List<Event>() {
                 new Event() {
-                    Id = 1,
                     Date = date,
                     Title = "Testing event 1",
                     Files = new List<AttachedFile>(),
                     Descriptions = ""
                 },
                 new Event() {
-                    Id = 2,
                     Date = date,
                     Title = "Testing event 2",
                     Files = new List<AttachedFile>(),
@@ -36,13 +32,6 @@ namespace SchedularLib.Tests.Managers
                 }
             };
         }
-
-        [TestCleanup]
-        public void TestCleanup()
-        {
-            CalendarFileManager.RemoveCalendar(date.Year, (Months)date.Month);
-        }
-
 
         [TestMethod]
         public void TestWriteReadFile()
@@ -62,6 +51,12 @@ namespace SchedularLib.Tests.Managers
             List<Event> actualEvents = CalendarFileManager.ReadCalendar(date.Year, (Months)date.Month);
 
             CollectionAssert.AreEqual(new List<Event>(), actualEvents);
+        }
+
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            CalendarFileManager.DropAllCalendars();
         }
     }
 }

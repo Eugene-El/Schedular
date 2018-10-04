@@ -52,6 +52,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Factories\CalendarFactoryTests.cs" />
     <Compile Include="Managers\IdManagerTests.cs" />
     <Compile Include="Managers\CalendarFileManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
